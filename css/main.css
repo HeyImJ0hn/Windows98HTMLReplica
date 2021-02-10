@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+
+body {
+    background: #008080;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    font-family: "MS Sans Serif";
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    overflow: hidden;
+}
+
+.container {
+    padding: 0px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.welcome_img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+#progressdiv {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: gray;
+}
+
+#progressbar {
+    width: 1%;
+    height: 30px;
+    background-color: #008080;
+}
+
+.login {
+    display: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 10;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    background: #c0c0c0;
+    width: 30%;
+    height: 18%;
+    position: absolute;
+    top: 30%;
+    left: 36%;
+}
+
+.logintitle {
+    padding: 0px 0px 0px 20px;
+    color: white;
+    background-image: linear-gradient(to right, #000080, #0882ce);
+}
+
+.loginbody {
+    font-size: 14px;
+    padding: 0px 0px 0px 0px;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.btn {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-radius: 0;
+    padding: 1px 4px;
+    font-size: 14px;
+}
+
+.loginbtn {
+    margin: 20px auto 3px;
+    padding: 0px 12px;
+}
+
+.btn:hover {
+    background: #a1a1a1;
+}
+
+.loginbtns {
+    padding: 4px 10px;
+    margin: 20px auto 3px;
+    display: block;
+    position: relative;
+    bottom: 0px;
+}
+
+.keyico {
+    padding: 0px 0px 0px 50px;
+}
+
+.program {
+    padding-top: 1%;
+    width: 5%;
+    background-color: transparent;
+    border: none;
+}
+
+.program:hover {
+    cursor: pointer;
+}
+
+.program:focus .programicon,
+.program:focus .programtext {
+    background-color: #222280;
+    opacity: 50%;
+}
+
+.programtext {
+    font-size: 14px;
+    color: white;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: #c0c0c0;
+}
+
+.startbtn {
+    margin: 2px;
+    background: #c0c0c0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    font-size: 14px;
+}
+
+#datetime {
+    margin: 2px;
+    float: right;
+    padding-right: 1%;
+    padding-left: 1%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #757575 #ffffff #ffffff #757575;
+}
+
+.startmenu {
+    display: none;
+    outline: 1px solid #000000;
+    background: #c0c0c0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    width: 14%;
+    height: 40%;
+    position: absolute;
+    bottom: 26px;
+    left: 0px;
+    z-index: 10;
+}
+
+.startmenutitle {
+    color: white;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #000080, #000000);
+    padding-left: 6%;
+    transform: rotate(-90deg);
+    width: 140%;
+    position: absolute;
+    left: -175px;
+    bottom: 176px;
+}
+
+.startmenuprograms {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.startmenuprogram {
+    margin-left: 10%;
+    padding-top: 5%;
+    width: 90%;
+    background-color: transparent;
+    border: none;
+}
+
+.starttext {
+    float: left;
+}
+
+.startmenuprogram:hover {
+    background-color: #000080;
+    color: white;
+    cursor: pointer;
+}
+
+.divisor {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    position: absolute;
+    width: 80%;
+    left: 34px;
+    bottom: 110px;
+}
+
+.terminatebtn {
+    /*margin-top: 59%;*/
+    margin-top: 39%;
+}
+
+.wpopup {
+    position: absolute;
+    top: 30%;
+    left: 33%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 9;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    background: #c0c0c0;
+    width: 30%;
+    height: 35%;
+    /**/ /**/ /**/ /**/ /**/
+}
+
+.popuptitle {
+    font-weight: bold;
+    padding: 0px 0px 0px 10px;
+    color: white;
+    background-image: linear-gradient(to right, #000080, #0882ce);
+}
+
+.subtitle {
+    font-size: 30px;
+    margin: 10px 0px 10px 20px;
+}
+
+.popupinfo {
+    border-width: 1px;
+    border-color: #a7a7a7 #ffffff #ffffff #a7a7a7;
+    border-style: solid;
+    background: #fff3cd;
+    width: 95%;
+    height: auto;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.popupbtn {
+    padding: 0px 37px;
+    margin-left: -20px;
+    margin-bottom: 10px;
+}
+
+.popupbtns {
+    margin-top: 39%;
+}
+
+.divisor2 {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    margin-left: 70%;
+    width: 26%;
+}
+
+.popupclose {
+    padding: 0px 37px;
+    margin-left: 73.5%;
+    margin-top: 5%;
+}
+
+.closebtn {
+    background-color: #c0c0c0;
+    color: black;
+    font-weight: bold;
+    margin: 3px 3px;
+    padding: 0px 5px 0px 3px;
+    font-size: 11px;
+    float: right;
+}
+
+.taskbtn {
+    margin: 1px;
+    background: #c0c0c0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000 #ffffff #ffffff #000000;
+    font-size: 14px;
+}
+
+#painttask {
+    display: none;
+}
+
+.errorwindow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 99;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    background: #c0c0c0;
+    width: 20%;
+    height: 17%;
+    display: none;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+}
+
+.errorbody {
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.errorbtn {
+    padding: 0px 37px;
+    margin-left: 40%;
+    margin-top: 8%;
+}
+
+.mspaint {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    background-color: #c0c0c0;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    height: 90%;
+    width: 94%;
+    display: none;
+}
+
+canvas {
+    position: absolute;
+    top: 6%;
+    left: 5%;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    background-color: white;
+}
+
+.paintbtn {
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px #c0c0c0 solid;
+}
+
+.paintbtn:hover {
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+}
+
+.toolbar {
+    margin-left: 12px;
+    width: 65px;
+    height: 50%;
+}
+
+.tool {
+    background: transparent;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    margin: 0px;
+}
+
+.tool:disabled {
+    background: white;
+    cursor: not-allowed;
+    opacity: 50%;
+}
+
+.tool:active {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000 #ffffff #ffffff #000000;
+    background-color: #c0c0c0;
+}
+
+.tool.active {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000 #ffffff #ffffff #000000;
+    background-color: white;
+}
+
+.color_selector {
+    width: 65px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000 #ffffff #ffffff #000000;
+    background-color: #c0c0c0;
+    padding: 0;
+}
+
+.brush_size {
+    width: 65px;
+    font-size: 14px;
+}
+
+.crypto {
+    position: absolute;
+    top: 18%;
+    left: 23%;
+    background-color: #c0c0c0;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    height: 50%;
+    width: 54%;
+    display: none;
+    z-index: 11;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    background-color: #c0c0c0;
+    z-index: 1;
+    width: 100px;
+    min-width: 100px;
+}
+
+.dropdown-content button {
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+
+.dropdown-content button:hover {
+    background-color: #000080;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.terminal {
+    font: 14px Inconsolata, monospace;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    width: 99.9%;
+    height: 44.3vh;
+    text-shadow: 0 0 5px #C8C8C8;
+}
+
+.searchcrypto {
+    font-size: 14px;
+}
+
+pre {
+    color: white;
+}
+
+#cryptotask {
+    display: none;
+    border-color: #000000 #ffffff #ffffff #000000;
+}
+
+.clippy {
+    z-index: 50;
+    position: absolute;
+}
+
+#programpc {
+    position: absolute;
+}
+
+#programpaint {
+    position: absolute;
+    top: 90px;
+}
+
+#programcrypto {
+    position: absolute;
+    top: 180px;
+}
+
+#programbin {
+    position: absolute;
+    top: 270px;
+}

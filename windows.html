@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/main.css" />
+
+        <script src="https://kit.fontawesome.com/5448f80af9.js" crossorigin="anonymous"></script>
+
+        <link rel="icon" type="image/png" href="imgs/windows_logo.png" />
+
+        <title>Windows 98</title>
+    </head>
+    <body>
+        <div class="programs" id="programs">
+            <button id="programpc" class="program text-center">
+                <img class="programicon" src="imgs/mycomputer.png" draggable="false"/>
+                <p class="programtext">My Computer</p>
+            </button><br>
+
+            <button id="programpaint" class="program text-center" id="mspaintprogram" ondblclick="openPaint(this)">
+                <img class="programicon" src="imgs/mspaint.png" draggable="false"/>
+                <p class="programtext">MS Paint</p>
+            </button><br>
+
+            <button id="programcrypto" class="program text-center" ondblclick="openCrypto(this)">
+                <img class="programicon" src="imgs/crypto.png" draggable="false"/>
+                <p class="programtext">CryptoMarket</p>
+            </button><br>
+
+            <button id="programbin" class="program text-center">
+                <img class="programicon" src="imgs/bin.png" draggable="false"/>
+                <p class="programtext">Recycle Bin</p>
+            </button><br>
+        </div>
+        <div id="startmenu" class="startmenu">
+            <div class="startmenutitle">Windows98</div>
+            <div class="startmenuprograms">
+                <button class="startmenuprogram" onclick="toggleStartMenu()">
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <img src="imgs/mycomputer.png" />
+                        </div>
+                        <div class="col">
+                            <p class="starttext">My Computer</p>
+                        </div>
+                    </div>
+                </button>
+                <button class="startmenuprogram" id="startmenupaint" onclick="openPaint(this)">
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <img src="imgs/mspaint.png" />
+                        </div>
+                        <div class="col">
+                            <p class="starttext">MS Paint</p>
+                        </div>
+                    </div>
+                </button>
+                <button class="startmenuprogram" id="startmenucrypto" onclick="openCrypto(this)">
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <img src="imgs/crypto.png" />
+                        </div>
+                        <div class="col">
+                            <p class="starttext">CryptoMarket</p>
+                        </div>
+                    </div>
+                </button>
+                <div class="divisor"></div>
+                <div class="terminatebtn">
+                    <button class="startmenuprogram" onclick="toggleStartMenu()">
+                        <div class="row">
+                            <div class="col col-sm-3">
+                                <img src="imgs/shutdown.png" />
+                            </div>
+                            <div class="col">
+                                <p class="starttext">Restart</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="startmenuprogram" onclick="shutdown()">
+                        <div class="row">
+                            <div class="col col-sm-3">
+                                <img src="imgs/shutdown.png" />
+                            </div>
+                            <div class="col">
+                                <p class="starttext">Shutdown</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="welcomepopup" class="wpopup container">
+            <div class="popuptitle">Welcome
+                <button class="btn closebtn" onclick=closePopUp()>X</button>
+            </div>
+            <div class="row">
+                <div class="col col-lg-8">
+                    <div class="popupbody"><p class="subtitle">Welcome to <b>Windows</b><span style="color: white">98</span></p>
+                        <div class="popupinfo">
+                            <img src="imgs/Info.png">
+                            <span class="px-2"><b>Did you know...</b></span>
+                            <p>Trabalho realizado no âmbito da cadeira de PCM por:<br>
+                            João Pires - A47471<br>
+                            31D</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-4 text-center">
+                    <div class="popupbtns">
+                        <button class="btn popupbtn" onclick=throwErrorPopUp()>What's New</button><br>
+                        <button class="btn popupbtn px-5" onclick=throwErrorPopUp()>Next Tip</button>
+                    </div>
+                </div>
+            </div>
+            <div class="divisor2"></div>
+            <button class="btn popupclose" onclick=closePopUp()>Close</button>
+        </div>
+
+        <div id="error" class="errorwindow container">
+            <div class="popuptitle">Error
+                <button class="btn closebtn" onclick=closeError()>X</button>
+            </div>
+            <div class="errorbody">
+                <img src="imgs/error.png"> 
+                <span class="px-4">An unexpected error occured.</span>
+            </div>
+            <div class="btn errorbtn" onclick=closeError()>Ok</div>
+        </div>
+
+        <div id="mspaint" class="mspaint">
+            <div class="popuptitle">MS Paint
+                <button class="btn closebtn" onclick=closePaint()>X</button>
+            </div>
+            <div class="menu" id="menu">
+                <button class="paintbtn" id="newbtn" onclick="openPaint(this)"><u>N</u>ew</button>
+                <button class="paintbtn" onclick="saveCanvas()"><u>S</u>ave</button>
+                <button class="paintbtn" onclick="closePaint()"><u>Q</u>uit</button>
+            </div>
+            <div class="toolbar" id="toolbar">
+                <button class="tool" id="shapesel" disabled>
+                    <img src="imgs/mspaint_tools/shape_selection.png">
+                </button>
+                <button class="tool" id="rectsel" disabled>
+                    <img src="imgs/mspaint_tools/rectangle_selection.png">
+                </button>
+                <button class="tool" id="eraser" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/eraser.png">
+                </button>
+                <button class="tool" id="bucket" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/bucket.png">
+                </button>
+                <button class="tool" id="colorp" disabled>
+                    <img src="imgs/mspaint_tools/color_picker.png">
+                </button>
+                <button class="tool" id="mglass" disabled>
+                    <img src="imgs/mspaint_tools/magnifying_glass.png">
+                </button>
+                <button class="tool" id="pencil" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/pencil.png">
+                </button>
+                <button class="tool" id="brush" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/brush.png">
+                </button>
+                <button class="tool" id="spray" disabled>
+                    <img src="imgs/mspaint_tools/spray.png">
+                </button>
+                <button class="tool" id="type" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/type.png">
+                </button>
+                <button class="tool" id="line" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/line.png">
+                </button>
+                <button class="tool" id="curve" disabled>
+                    <img src="imgs/mspaint_tools/curve.png">
+                </button>
+                <button class="tool" id="square" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/square.png">
+                </button>
+                <button class="tool" id="shape" disabled>
+                    <img src="imgs/mspaint_tools/shape.png">
+                </button>
+                <button class="tool" id="circle" onclick=toggleButton(this)>
+                    <img src="imgs/mspaint_tools/circle.png">
+                </button>
+                <button class="tool" id="rrectacle" disabled>
+                    <img src="imgs/mspaint_tools/round_rectangle.png">
+                </button>
+                <input type="color" id="color" class="color_selector">
+                <span style="font-size: 14px;">Size</span>
+                <input type="number" id="size" class="brush_size text-center" value="10" min="1" max="50">
+            </div>
+            <div class="mspaintbody">
+                <div class="canvas" id="canvasdiv">
+                    <canvas id="canvas" width="1704px" height="792px"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="crypto" class="crypto">
+            <div class="popuptitle">CryptoMarket
+                <button class="btn closebtn" onclick=closeCrypto()>X</button>
+            </div>
+            <div class="menu" id="cryptomenu">
+                <div class="dropdown">
+                    <button class="paintbtn" id="cryptolistbtn" onclick=""><u>C</u>oins <i class="fas fa-sort-down"></i></button>
+                    <div class="dropdown-content">
+                        <button class="coinbtn" id="btcbtn" onclick="getBTC()">Bitcoin</button>
+                        <button class="coinbtn" id="ethbtn" onclick="getETH()">Ethereum</button>
+                        <button class="coinbtn" id="bnbbtn" onclick="getBNB()">Binance Coin</button>
+                        <button class="coinbtn" id="dogebtn" onclick="getDOGE()">Dogecoin</button>
+                    </div>
+                </div>
+                <input class="searchcrypto" id="searchcrypto" type="text" placeholder="Search Crypto" autocomplete="off">
+                <button class="paintbtn" onclick="saveToXML()"><u>S</u>ave</button>
+                <button class="paintbtn" onclick="closeCrypto()"><u>Q</u>uit</button>
+            </div>
+            <div class="cryptobody" id="cryptobody">
+                <div class="terminal" id="terminal">
+                    <p>Limited to 100 requests per minute.</p>
+                    <div class="terminaltext" id="terminaltext">
+                        <pre>
+      _____                  _        __  __            _        _   
+     / ____|                | |      |  \/  |          | |      | |  
+    | |     _ __ _   _ _ __ | |_ ___ | \  / | __ _ _ __| | _____| |_ 
+    | |    | '__| | | | '_ \| __/ _ \| |\/| |/ _` | '__| |/ / _ \ __|
+    | |____| |  | |_| | |_) | || (_) | |  | | (_| | |  |   <  __/ |_ 
+     \_____|_|   \__, | .__/ \__\___/|_|  |_|\__,_|_|  |_|\_\___|\__|
+                  __/ | |                                            
+                 |___/|_|                                            
+                        </pre>
+                        <p>Please select a coin.<br>
+                        Re-selecting a coin will refresh the data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="clippy" class="clippy" style="top: 800px; left: 1800px;">
+            <img src="imgs/clippy.png" draggable="false"/>
+        </div>
+
+        <footer id="taskbar">
+            <button id="startbtn" class="startbtn" onclick="toggleStartMenu()">
+                <img src="imgs/windows_logo.png" width="30%" height="auto" />
+                <b>Start</b>
+            </button>
+            <button id="popuptask" class="taskbtn" onclick=swapBorder(this) active>
+                <img src="imgs/Info.png" width="15%" height="auto" />
+                <b>Welcome.exe</b>
+            </button>
+            <button id="painttask" class="taskbtn" onclick=swapBorder(this) active>
+                <img src="imgs/mspaint.png" width="15%" height="auto" />
+                <b>MSPaint.exe</b>
+            </button>
+            <button id="cryptotask" class="taskbtn" onclick=swapBorder(this) active>
+                <img src="imgs/crypto.png" width="12%" height="auto" />
+                <b>CryptoMarket.exe</b>
+            </button>
+            <span id="datetime"></span>
+        </footer>
+
+        <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+        <!--<script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>-->
+        <!--<script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"
+        ></script>-->
+        <!-- js -->
+        <script src="js/main.js"></script>
+        <script src="js/canvas.js"></script>
+        <script src="js/crypto.js"></script>
+
+        <script src="jquery/jquery-3.5.1.min.js"></script>
+        <script>
+            setInterval(function() {
+                let date = new Date(); // Format Tue Feb 09 2021 13:53:09 GMT+0000 (Western European Standard Time)
+                date = date.toString();
+                date = date.split(' ');
+                date = date[4];
+                let hour = date.split(':')[0];
+                let minutes = date.split(':')[1];
+                document.getElementById("datetime").innerHTML = hour + ':' + minutes;
+            }, 1000);
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("#searchcrypto").keypress(function(e) {
+                    if(e.keyCode==13) // 13 == Return
+                        searchCrypto();
+                });
+            });
+        </script>
+    </body>
+</html>
