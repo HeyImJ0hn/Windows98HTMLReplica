@@ -23,7 +23,7 @@ function searchCrypto() {
 }
 
 function getData(data) {
-    let terminal = document.getElementById("terminaltext");
+    let terminal = document.getElementById("cryptoterminaltext");
 
     let last_updated = data.last_updated; // Format: "2021-02-09T13:14:20.702Z"
     last_updated = last_updated.split('T');
