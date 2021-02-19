@@ -3,23 +3,22 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
         <!-- Bootstrap CSS -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
             integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="css/style.css" />
+            crossorigin="anonymous"/>
+        <link rel="stylesheet" href="css/style.css"/>
+
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
         <script src="https://kit.fontawesome.com/5448f80af9.js" crossorigin="anonymous"></script>
 
-        <link rel="icon" type="image/png" href="imgs/windows_logo.png" />
+        <link rel="icon" type="image/png" href="imgs/windows_logo.png"/>
 
         <title>Windows 98</title>
     </head>
@@ -44,6 +43,11 @@
             <button id="programweather" class="program text-center" ondblclick="openWeather(this)">
                 <img class="programicon" src="imgs/weather.png" draggable="false"/>
                 <p class="programtext">Weather</p>
+            </button><br>
+
+            <button id="programsnake" class="program text-center" ondblclick="openSnake(this)">
+                <img class="programicon" src="imgs/snake_logo.png" draggable="false"/>
+                <p class="programtext">Snake</p>
             </button><br>
 
             <button id="programbin" class="program text-center" ondblclick="openBin()">
@@ -96,9 +100,19 @@
                         </div>
                     </div>
                 </button>
+                <button class="startmenuprogram" id="startmenusnake" onclick="openSnake(this)">
+                    <div class="row">
+                        <div class="col col-sm-3">
+                            <img src="imgs/snake_logo.png"/>
+                        </div>
+                        <div class="col">
+                            <p class="starttext">Snake</p>
+                        </div>
+                    </div>
+                </button>
                 <div class="divisor"></div>
                 <div class="terminatebtn">
-                    <button class="startmenuprogram" onclick="toggleStartMenu()">
+                    <!--<button class="startmenuprogram" onclick="toggleStartMenu()">
                         <div class="row">
                             <div class="col col-sm-3">
                                 <img src="imgs/shutdown.png" />
@@ -107,7 +121,7 @@
                                 <p class="starttext">Restart</p>
                             </div>
                         </div>
-                    </button>
+                    </button>-->
                     <button class="startmenuprogram" onclick="shutdown()">
                         <div class="row">
                             <div class="col col-sm-3">
@@ -198,7 +212,7 @@
                 <button class="tool" id="eraser" onclick=toggleButton(this)>
                     <img src="imgs/mspaint_tools/eraser.png">
                 </button>
-                <button class="tool" id="bucket" onclick=toggleButton(this)>
+                <button class="tool" id="bucket" disabled>
                     <img src="imgs/mspaint_tools/bucket.png">
                 </button>
                 <button class="tool" id="colorp" disabled>
@@ -240,6 +254,9 @@
                 <input type="color" id="color" class="color_selector">
                 <span style="font-size: 14px;">Size</span>
                 <input type="number" id="size" class="brush_size text-center" value="10" min="1" max="50">
+                <input type="text" placeholder="Text" id="textinput" class="mt-1" style="font-size: 14px;" size="5">
+                <input type="checkbox" id="stroke" name="stroke">
+                <label for="stroke" style="font-size: 14px;">Stroke</label>
             </div>
             <div class="mspaintbody">
                 <div class="canvas" id="canvasdiv">
@@ -321,6 +338,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Snake Game -->
+        <div id="snake" class="snake">
+            <div class="popuptitle">
+                <img src="imgs/snake_logo.png" class="mb-1" width="4%" draggable="false">
+                Snake
+                <button class="btn closebtn" onclick=closeSnake()>X</button>
+            </div>
+            <div class="snakecanvas" id="snakecanvasdiv">
+                <canvas id="snakecanvas" width="608px" height="608px"></canvas>
             </div>
         </div>
 
@@ -416,6 +445,10 @@
                 <img src="imgs/weather.png" width="18%" height="auto" />
                 <b>Weather.exe</b>
             </button>
+            <button id="snaketask" class="taskbtn" onclick=swapBorder(this) active>
+                <img src="imgs/snake_logo.png" width="20%" height="auto" />
+                <b>Snake.exe</b>
+            </button>
             <button id="bintask" class="taskbtn" onclick=swapBorder(this) active>
                 <img src="imgs/bin.png" width="14%" height="auto" />
                 <b>Recycle Bin</b>
@@ -439,11 +472,14 @@
         <script src="js/canvas.js"></script>
         <script src="js/crypto.js"></script>
         <script src="js/weather.js"></script>
+        <script src='js/gamemanager.js'></script>
+        <script src='js/game.js'></script>
+        <script src='js/snake.js'></script>
 
         <script src="jquery/jquery-3.5.1.min.js"></script>
         <script>
             setInterval(function() {
-                let date = new Date(); // Format Tue Feb 09 2021 13:53:09 GMT+0000 (Western European Standard Time)
+                let date = new Date(); // Format "Tue Feb 09 2021 13:53:09 GMT+0000 (Western European Standard Time)"
                 date = date.toString();
                 date = date.split(' ');
                 date = date[4];

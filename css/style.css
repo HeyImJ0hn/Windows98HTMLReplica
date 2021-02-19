@@ -210,7 +210,7 @@ footer {
     position: absolute;
     width: 210px;
     left: 34px;
-    bottom: 110px;
+    bottom: 55px;
 }
 
 .terminatebtn {
@@ -535,10 +535,14 @@ pre {
     top: 270px;
 }
 
+#programsnake {
+    position: absolute;
+    top: 360px;
+}
 
 #programbin {
     position: absolute;
-    top: 360px;
+    top: 450px;
 }
 
 .mycomputer {
@@ -673,5 +677,30 @@ pre {
 }
 
 #weathertask {
+    display: none;
+}
+
+.snake {
+    position: absolute;
+    top: 15%;
+    left: 32%;
+    width: 610px;
+    height: 638px;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    display: none;
+}
+
+.snakecanvas {
+    position: absolute;
+}
+
+#snakecanvas { 
+    background-color: #1a1a1a;
+    border: none;
+}
+
+#snaketask {
     display: none;
 }

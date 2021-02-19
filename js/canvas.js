@@ -5,13 +5,16 @@ function toggleButton(element) {
     if (y.length > 0)
         y[0].classList.remove("active");
 
-    x.blur();
+    try {
+        x.blur();
 
-    if (x.classList.contains("active")) {
-        x.classList.remove("active");
-    } else {
-        x.classList.add("active");
-    }
+        if (x.classList.contains("active")) {
+            x.classList.remove("active");
+        } else {
+            x.classList.add("active");
+        }
+    } catch (exception) {}
+    
 }
 
 function reloadCanvas(element) {
@@ -39,12 +42,20 @@ function main() {
     cnv.addEventListener("mousedown", startPosition);
     cnv.addEventListener("mouseup", stopPosition);
     cnv.addEventListener("mousemove", draw);
+    cnv.addEventListener("mouseleave", stopPosition);
 }
 
 function startPosition(ev) {
+    let tool = document.getElementsByClassName("active");
+    if (tool.length < 1)
+        return;
+    tool = tool[0].id;
+
     drawing = true;
     draw(ev);
 }
+
+let p = 1;
 
 function stopPosition() {
     let cnv = document.getElementById("canvas");
@@ -58,6 +69,16 @@ function stopPosition() {
     drawing = false;
     if (tool != 'line')
         ctx.beginPath();
+
+    if (tool == 'line') {
+        if (p == 0) {
+            p++;
+            ctx.beginPath();
+        } else if (p == 1) {
+            p = 0;
+            ctx.closePath();
+        }
+    }
 }
 
 function draw(ev) {
@@ -73,14 +94,20 @@ function draw(ev) {
     if(!drawing)
         return;
 
+    let paint = true;
+    let square = false;
+    let circle = false;
+    let text = false;
+
     let tool = document.getElementsByClassName("active");
     if (tool.length < 1)
         return;
     tool = tool[0].id;
 
+    let stroke = document.getElementById("stroke").checked;
+
     let color = document.getElementById("color").value;
     ctx.strokeStyle = color;
-    let line = false;
     switch(tool) {
         case 'pencil':
             ctx.lineCap = 'butt';
@@ -92,23 +119,59 @@ function draw(ev) {
             ctx.lineCap = 'round';
             ctx.strokeStyle = "#fff";
             break;
-        case 'bucket':
-            paintBucket(ev.offsetX, ev.offsetY);
-            break;
         case 'line':
-            line = true;
+            ctx.lineCap = 'round';
+            break;
+        case 'square':
+            paint = false;
+            square = true;
+            break;
+        case 'circle':
+            paint = false;
+            circle = true;
+            break;
+        case 'type':
+            paint = false;
+            text = true;
             break;
     }    
 
-    ctx.lineWidth = size;
-
-    ctx.lineTo(ev.offsetX, ev.offsetY);
-    ctx.stroke();
-    if (!line)
-        ctx.beginPath();
-    line = false;
-    ctx.moveTo(ev.offsetX, ev.offsetY);
+    if(square) {
+        ctx.fillStyle = color;
+        if (stroke) {
+            ctx.lineWidth = size / 2;
+            ctx.strokeRect(ev.offsetX - size*5, ev.offsetY - size*5, size*10, size*10);
+        } else
+            ctx.fillRect(ev.offsetX - size*5, ev.offsetY - size*5, size*10, size*10);
+    } else if (circle) {
+        ctx.arc(ev.offsetX, ev.offsetY, size*10, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        if (stroke) {
+            ctx.lineWidth = size / 2;
+            ctx.stroke();
+        } else
+            ctx.fill();
+    } else if (text) {
+        let textStr = document.getElementById("textinput").value;
+        ctx.font = (size * 2) + "px MS Sans Serif";
+        ctx.fillStyle = color;
+        ctx.textAlign = "center";
+        if (stroke) {
+            ctx.lineWidth = size / 5;
+            ctx.strokeText(textStr, ev.offsetX, ev.offsetY);
+        } else {
+            console.log('ee');
+            ctx.fillText(textStr, ev.offsetX, ev.offsetY);
+        }
+    }
     
+    if (paint) {
+        ctx.lineWidth = size;
+
+        ctx.lineTo(ev.offsetX, ev.offsetY);
+        ctx.stroke();
+        ctx.moveTo(ev.offsetX, ev.offsetY);
+    }
 }
 
 function saveCanvas() {
@@ -118,35 +181,4 @@ function saveCanvas() {
     link.download = "canvas.png";
     link.href = image;
     link.click();
-}
-
-function rgbToHex(r, g, b) {
-    if (r > 255 || g > 255 || b > 255)
-        throw "Invalid color component";
-    return ((r << 16) | (g << 8) | b).toString(16);
-}
-
-function paintBucket(startx, starty) {
-    let cnv = document.getElementById("canvas");
-    let ctx = cnv.getContext("2d");
-    let color = document.getElementById("color").value;
-    let x = startx;
-    let y = starty;
-
-    let pixelData = ctx.getImageData(x, y, 1, 1).data; 
-
-    let hex = "#" + ("000000" + rgbToHex(pixelData[0], pixelData[1], pixelData[2])).slice(-6);
-    
-    while (hex != color) {
-        ctx.strokeStyle = color;
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(y, y);
-        x += 1;
-        y += 1;
-        pixelData = ctx.getImageData(x, y, 1, 1).data; 
-        hex = "#" + ("000000" + rgbToHex(pixelData[0], pixelData[1], pixelData[2])).slice(-6);
-    }
-
 }

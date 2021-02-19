@@ -1,5 +1,5 @@
 function moveBar() {
-    document.body.style.backgroundImage = "url('/imgs/win98bg.jpg')";
+    document.body.style.backgroundImage = "url('imgs/win98bg.jpg')";
     let i = 0;
     if (i == 0) {
         i = 1;
@@ -133,6 +133,16 @@ function openPaint(element) {
 function closePaint() {
     document.getElementById("mspaint").style.display = "none";
     document.getElementById("painttask").style.display = "none";
+    document.getElementById("textinput").value = "";
+    document.getElementById("stroke").checked = false;
+    
+    let tool = document.getElementsByClassName("active");
+    if (tool.length < 1)
+        return;
+    else {
+        toggleButton(tool);
+    }
+
 }
 
 function openCrypto(element) {
@@ -180,6 +190,29 @@ function closeWeather() {
     document.getElementById("weathertask").style.display = "none";
 }
 
+function openSnake(element) {
+    let btn = document.getElementById(element.id);
+    if (btn.id == "startmenusnake")
+        toggleStartMenu();
+    if (document.getElementById("startmenu").style.display == "block")
+        toggleStartMenu();
+
+    document.getElementById("speech").style.display = "block";
+    document.getElementById("speech").innerHTML = "Have fun!";
+    setTimeout(function () { document.getElementById("speech").style.display = "none" }, 4000)
+
+    document.getElementById("snake").style.display = "block";
+    document.getElementById("snaketask").style.display = "inline";
+
+    initGame();
+}
+
+function closeSnake() {
+    stopGame();
+    document.getElementById("snake").style.display = "none";
+    document.getElementById("snaketask").style.display = "none";
+}
+
 function openComputer(element) {
     let btn = document.getElementById(element.id);
     if (btn.id == "startmenucomputer")
@@ -225,6 +258,8 @@ function drag() {
     dragElement(document.getElementById("programpaint"));
     dragElement(document.getElementById("programcrypto"));
     dragElement(document.getElementById("programbin"));
+    dragElement(document.getElementById("programweather"));
+    dragElement(document.getElementById("programsnake"));
 }
 
 function dragElement(element) {
@@ -267,6 +302,7 @@ function shutdown() {
     setTimeout(function () { document.getElementById("crypto").style.display = "none" }, 500);
     setTimeout(function () { document.getElementById("nopermission").style.display = "none" }, 500);
     setTimeout(function () { document.getElementById("weather").style.display = "none" }, 500);
+    setTimeout(function () { document.getElementById("snake").style.display = "none" }, 500);
     setTimeout(function () { document.getElementById("bin").style.display = "none" }, 500);
     setTimeout(function () { document.getElementById("mycomputer").style.display = "none" }, 500);
     setTimeout(function () { document.getElementById("taskbar").style.display = "none" }, 1000);
