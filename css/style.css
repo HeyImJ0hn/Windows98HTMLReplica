@@ -81,6 +81,7 @@ body {
     border-radius: 0;
     padding: 1px 4px;
     font-size: 14px;
+    background-color: #c0c0c0;
 }
 
 .loginbtn {
@@ -329,6 +330,25 @@ footer {
     margin-top: 8%;
 }
 
+.windowpopup {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 200;
+    border-width: 1px;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    border-style: solid;
+    background: #c0c0c0;
+    width: 400px;
+    height: 200px;
+    display: none;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+}
+
+.windowpopupbody {
+    margin-top: 8%;
+}
+
 .mspaint {
     position: absolute;
     top: 3%;
@@ -337,15 +357,15 @@ footer {
     border-width: 1px;
     border-color: #ffffff #000000 #000000 #ffffff;
     border-style: solid;
-    height: 90%;
-    width: 94%;
+    height: 852.3px;
+    width: 1804.8px;
     display: none;
 }
 
 canvas {
     position: absolute;
-    top: 6%;
-    left: 5%;
+    top: 50px;
+    left: 88px;
     border-width: 1px;
     border-color: #ffffff #000000 #000000 #ffffff;
     border-style: solid;

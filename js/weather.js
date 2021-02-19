@@ -5,10 +5,12 @@ function getCityTEST() {
 }
 
 function getCity(name) {
+    
     let city = document.getElementById("searchcity").value;
-    console.log(name);
+
     if (name != null)
         city = name;
+
     $.getJSON('https://dataservice.accuweather.com/locations/v1/cities/search?apikey=f2N2k4tpchUhTAyeN1qgDOOAlzmbT9SG&q=' + city + '%20portugal&language=en-us&details=true', getCityId).fail(throwErrorPopUp);
     document.getElementById("searchcity").value = "";
 }

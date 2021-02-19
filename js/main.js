@@ -104,6 +104,14 @@ function closeError() {
     document.getElementById("error").style.display = "none";
 }
 
+function windowPopUp() {
+    document.getElementById("windowpopup").style.display = "block";
+}
+
+function closeWindowPopUp() {
+    document.getElementById("windowpopup").style.display = "none";
+}
+
 function throwNoPermissionPopUp() {
     document.getElementById("nopermission").style.display = "block";
 
