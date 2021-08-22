@@ -5,7 +5,7 @@ You can check the website [here](https://heyimj0hn.github.io/Windows98HTMLReplic
 
 Includes some features such as:
 * Clippy
-* Crypto Market
+* Crypto Market (Save option doesn't reall work)
 * MS Paint (not all features)
 * Weather (broken because of the api key)
 * Ability to drag desktop programs and clippy
