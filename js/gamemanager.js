@@ -97,7 +97,7 @@ class GameManager {
         } 
     }
 
-    restartGame(game, cnv) {
+    restartGame(game) {
         game.score = 0;
         game.snake.direction = '';
         game.fruit.newLocation(game.snake.body);

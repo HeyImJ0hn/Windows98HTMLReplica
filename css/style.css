@@ -219,9 +219,9 @@ footer {
 }
 
 .wpopup {
-    position: absolute;
-    top: 30%;
-    left: 33%;
+    position: relative;
+    top: 0%;
+    left: 0%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 9;
     border-width: 1px;
@@ -230,7 +230,6 @@ footer {
     background: #c0c0c0;
     width: 575px;
     height: 332px;
-    /**/ /**/ /**/ /**/ /**/
 }
 
 .popuptitle {
@@ -259,7 +258,7 @@ footer {
 
 .popupbtn {
     padding: 0px 37px;
-    margin-left: -20px;
+    margin-left: 0px;
     margin-bottom: 10px;
 }
 
@@ -271,14 +270,14 @@ footer {
     border-width: 1px;
     border-style: solid;
     border-color: #808080 #ffffff #ffffff #808080;
-    margin-left: 70%;
+    margin-left: 68%;
     width: 26%;
 }
 
 .popupclose {
-    padding: 0px 37px;
-    margin-left: 73.5%;
-    margin-top: 5%;
+    padding: 0% 5%;
+    margin-left: 73%;
+    margin-top: 1%;
 }
 
 .closebtn {
@@ -311,12 +310,12 @@ footer {
     border-color: #ffffff #000000 #000000 #ffffff;
     border-style: solid;
     background: #c0c0c0;
-    width: 20%;
-    height: 17%;
+    width: 360px;
+    height: 155px;
     display: none;
-    position: absolute;
-    top: 34%;
-    left: 40%;
+    position: relative;
+    top: -100px;
+    left: 0%;
 }
 
 .errorbody {
@@ -362,7 +361,7 @@ footer {
     display: none;
 }
 
-canvas {
+.canvas {
     position: absolute;
     top: 50px;
     left: 88px;
@@ -433,9 +432,9 @@ canvas {
 }
 
 .crypto {
-    position: absolute;
-    top: 18%;
-    left: 23%;
+    position: relative;
+    top: 0%;
+    left: 25%;
     background-color: #c0c0c0;
     border-width: 1px;
     border-color: #ffffff #000000 #000000 #ffffff;
@@ -642,11 +641,11 @@ pre {
     border-color: #ffffff #000000 #000000 #ffffff;
     border-style: solid;
     background: #c0c0c0;
-    width: 20%;
-    height: 17%;
-    position: absolute;
-    top: 34%;
-    left: 40%;
+    width: 360px;
+    height: 155px;
+    position: relative;
+    top: 50px;
+    left: 0px;
     display: none;
 }
 

@@ -47,6 +47,7 @@ function getData(data) {
     terminal.innerHTML = string;
 }
 
+// Not working atm
 function saveToXML() {
     let xmlRowString = "<Crypto>\n";
     let name = document.getElementById("name").innerHTML.split("-")[0].trim();

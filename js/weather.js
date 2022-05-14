@@ -1,4 +1,4 @@
-let API_KEY = ''; // Fill with API KEY
+//API KEY: f2N2k4tpchUhTAyeN1qgDOOAlzmbT9SG
 
 function getCityTEST() {
     $.getJSON('json/search.json', getCityId);
@@ -11,7 +11,7 @@ function getCity(name) {
     if (name != null)
         city = name;
 
-    $.getJSON('https://dataservice.accuweather.com/locations/v1/cities/search?apikey=' + API_KEY + '&q=' + city + '%20portugal&language=en-us&details=true', getCityId).fail(throwErrorPopUp);
+    $.getJSON('https://dataservice.accuweather.com/locations/v1/cities/search?apikey=f2N2k4tpchUhTAyeN1qgDOOAlzmbT9SG&q=' + city + '%20portugal&language=en-us&details=true', getCityId).fail(throwErrorPopUp);
     document.getElementById("searchcity").value = "";
 }
 
@@ -20,7 +20,7 @@ function getWeatherTEST(city_id) {
 }
 
 function getWeather(city_id) {
-    $.getJSON('https://dataservice.accuweather.com/forecasts/v1/daily/5day/' + city_id + '?apikey=' + API_KEY + '&language=en-US&details=true&metric=true', getWeatherData).fail(throwErrorPopUp);
+    $.getJSON('https://dataservice.accuweather.com/forecasts/v1/daily/5day/' + city_id + '?apikey=f2N2k4tpchUhTAyeN1qgDOOAlzmbT9SG&language=en-US&details=true&metric=true', getWeatherData).fail(throwErrorPopUp);
 }
 
 function getCityId(data) {

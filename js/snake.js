@@ -101,21 +101,13 @@ class Snake {
     }
 
     changeDir(dir) {
-
-        let snakeX = this.body[0].x;
-        let snakeY = this.body[0].y;
-
         if (dir == 'Up' && this.direction != 'DOWN') {
-            snakeY -= unit;
             this.direction = 'UP';
         } else if (dir == 'Down' && this.direction != 'UP') {
-            snakeY += unit;
             this.direction = 'DOWN';
         } else if (dir == 'Left' && this.direction != 'RIGHT') {
-            snakeX -= unit;
             this.direction = 'LEFT';
         } else if (dir == 'Right' && this.direction != 'LEFT') {
-            snakeX += unit;
             this.direction = 'RIGHT';
         } else {
             return;
@@ -129,8 +121,6 @@ class Snake {
     headCollision(newHead, snake) {
         for (let i = 0; i < snake.length; i++) {
             if (newHead.x == snake[i].x && newHead.y == snake[i].y) {
-                console.log(newHead);
-                console.log(snake[i]);
                 return true;
             }
         }
@@ -145,7 +135,7 @@ class Fruit {
         this.y = -10;
         this.h = unit;
         this.w = unit;
-        this.imgobj = new Image(32, 32);
+        this.imgobj = new Image(this.h, this.w);
         this.imgobj.src = 'imgs/apple2.png';
     }
 

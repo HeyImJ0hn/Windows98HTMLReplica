@@ -315,7 +315,7 @@ function shutdown() {
     setTimeout(function () { document.getElementById("mycomputer").style.display = "none" }, 500);
     setTimeout(function () { document.getElementById("taskbar").style.display = "none" }, 1000);
     setTimeout(function () { document.getElementById("clippy").style.display = "none" }, 2000);
-    setTimeout(function () { document.body.style.backgroundImage = "url('/imgs/win98bg.jpg')" }, 2000);
+    setTimeout(function () { document.body.style.backgroundImage = "url('imgs/win98bg.jpg')" }, 2000);
     setTimeout(function () { document.body.style.backgroundImage = "" }, 4000);
     setTimeout(function () { document.body.style.backgroundColor = "#000" }, 4000);
 

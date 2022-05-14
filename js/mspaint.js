@@ -46,10 +46,10 @@ function main() {
 }
 
 function startPosition(ev) {
-    let tool = document.getElementsByClassName("active");
-    if (tool.length < 1)
-        return;
-    tool = tool[0].id;
+    //let tool = document.getElementsByClassName("active");
+    //if (tool.length < 1)
+    //    return;
+    //tool = tool[0].id;
 
     drawing = true;
     draw(ev);
@@ -176,7 +176,7 @@ function draw(ev) {
 
 function saveCanvas() {
     let cnv = document.getElementById("canvas");
-    image = cnv.toDataURL("image/png");
+    let image = cnv.toDataURL("image/png");
     let link = document.createElement('a');
     link.download = "canvas.png";
     link.href = image;
